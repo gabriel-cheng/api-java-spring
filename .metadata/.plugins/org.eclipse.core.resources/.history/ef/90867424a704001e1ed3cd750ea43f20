@@ -1,0 +1,5 @@
+package com.gabrielcarvalho.demo.controller;
+
+public class ProductController {
+
+}
