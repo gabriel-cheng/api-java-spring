@@ -1,7 +1,12 @@
 package com.gabrielcarvalho.demo.controller;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gabrielcarvalho.demo.entities.Departments;
@@ -17,9 +22,19 @@ public class ProductController {
 	@GetMapping
 	public Departments getObjects() {
 		Departments d1 = new Departments();
-		d1.setId(1L);
-		d1.setName("Braia guei");
+		d1.setId(1);
+		d1.setName("Testando");
 		
+		System.out.println("Funcionando!");		
 		return d1;
+	}
+	
+	@GetMapping("/param")
+	@ResponseBody
+	public BigDecimal getDecimal(@RequestParam double param) {
+		BigDecimal value = new BigDecimal(param).setScale(3, RoundingMode.HALF_UP);
+		
+		System.out.println(value);
+		return value;
 	}
 }
