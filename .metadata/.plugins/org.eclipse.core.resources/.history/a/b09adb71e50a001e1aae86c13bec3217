@@ -1,0 +1,40 @@
+package com.gabrielcarvalho.demo.controller;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gabrielcarvalho.demo.entities.Departments;
+
+// Cria esta annotation e aperta CTRL + SHIFT + O para importar a classe.
+// Esta annotation serve para configurar uma classe.
+@RestController
+
+// Annotation que cria a endpoint products
+@RequestMapping(value = "/braia")
+public class ProductController {
+	
+	@GetMapping
+	public Departments getObjects() {
+		Departments d1 = new Departments();
+		d1.setId(1);
+		d1.setName("Vc eh guei =D");
+		
+		System.out.println("Entrou mais um gay");		
+		return d1;
+	}
+	
+	@GetMapping("/param")
+	@ResponseBody
+	public BigDecimal getDecimal(@RequestParam double param) {
+		BigDecimal value = new BigDecimal(param).setScale(3, RoundingMode.HALF_UP);
+		
+		System.out.println(value);
+		return value;
+	}
+}

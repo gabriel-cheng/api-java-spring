@@ -1,0 +1,9 @@
+package com.gabrielcarvalho.demo.entities;
+
+public class Products {
+	private Long id;
+	private String name;
+	private Double price;
+	
+	private Department department;
+}

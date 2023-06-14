@@ -1,0 +1,5 @@
+package com.gabrielcarvalho.demo.entities;
+
+public class Products {
+
+}
